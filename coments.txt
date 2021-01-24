@@ -1,0 +1,3 @@
+es posible que entre experimentos se tenga un poco de shift, creo entonces que se debe hacer una etapa de asignacion 
+
+y si el pp en el 1D da las tentativas de los corrimentos quimicos, hacer el pp en el jres asignando por multiplicidad podria generar una mejora en el 1D
