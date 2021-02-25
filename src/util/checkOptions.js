@@ -4,7 +4,7 @@ const defaultDept135Options = { lookNegative: true };
 const defaultProtonOptions = { optimize: true, factorWidth: 8 };
 const defaultCarbonOptions = { optimize: true, factorWidth: 4 };
 const defaultJresOptions = {
-  tolerances: [5, 40],
+  tolerances: [5, 100],
   observeFrequencies: [600, 600],
   nucleus: ['1H', '1H'],
   isHomoNuclear: true,
@@ -25,18 +25,18 @@ export function checkOptions(inputKey = [], options = {}) {
   return options;
 }
 
-function autoCompletOption(options, key) {
+function autoCompletOption(options = {}, key) {
   switch (key.toLowerCase()) {
     case 'jres':
-      return assignDeep({}, defaultJresOptions, options || {});
+      return assignDeep({}, defaultJresOptions, options);
     case 'proton':
-      return assignDeep({}, defaultProtonOptions, options || {});
+      return assignDeep({}, defaultProtonOptions, options);
     case 'dept135':
-      return assignDeep({}, defaultDept135Options, options || {});
+      return assignDeep({}, defaultDept135Options, options);
     case 'carbon':
-      return assignDeep({}, defaultCarbonOptions, options || {});
+      return assignDeep({}, defaultCarbonOptions, options);
     case 'hsqc':
-      return assignDeep({}, defaultHsqcOptions, options || {});
+      return assignDeep({}, defaultHsqcOptions, options);
     default:
       throw new Error(`kind of spectrum does not supported - ${key}`);
   }
