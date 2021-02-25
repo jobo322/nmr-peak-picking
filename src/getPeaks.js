@@ -1,7 +1,11 @@
-import { xyzAutoPeaksPicking, xyAutoPeaksPicking } from 'nmr-processing';
+import {
+  xyzAutoPeaksPicking,
+  xyAutoPeaksPicking,
+  xyzJResAnalizer,
+} from 'nmr-processing';
 
 export function getPeaks(input, key, options = {}) {
-    console.log('options', options)
+  console.log('options', options);
   switch (key.toLowerCase()) {
     case 'jres':
       let peakList = xyzAutoPeaksPicking(input, options);
@@ -94,6 +98,7 @@ function getProjectionNameFromNucleus(nucleus) {
 
 function projectJres(jres, key) {
   let peaks1D = [];
+  jres = xyzJResAnalizer(jres);
   for (let i = 0; i < jres.length; i++) {
     let signal = jres[i];
     let peaks = mergePeaks2D(signal.peaks, 1e-5);
